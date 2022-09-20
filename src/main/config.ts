@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default {
     type: Phaser.AUTO,
-    parent: 'game',
+    parent: 'game-container',
     width: 1366,
     height: 768,
     physics: {
