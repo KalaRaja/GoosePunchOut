@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "dev": "webpack --mode=development",
+    "dev": "webpack watch --mode=development",
     "serve": "http-server public -p 3000 -a 127.0.0.1",
     "build": "webpack --mode=production"
   },
