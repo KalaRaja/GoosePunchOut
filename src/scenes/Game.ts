@@ -9,6 +9,7 @@ const LEVELUP_SPEED_INCREMENT = 10;
 const LEVELUP_STAMINA_INCREMENT = 1;
 const INITIAL_STAMINA = 10;
 const MAX_GEESE = 10;
+const MIN_STREAK = 3;
 
 interface Metric {
   score: MetricDetail;
@@ -46,6 +47,7 @@ class Game extends Phaser.Scene {
   gameBackdrop: Phaser.GameObjects.Image;
   gameOverBakcdrop: Phaser.GameObjects.Image;
   gameOverSoundObject: Phaser.Sound.BaseSound;
+  streakBorkenSoundObject: Phaser.Sound.BaseSound;
 
   constructor() {
     super('game');
@@ -114,6 +116,8 @@ class Game extends Phaser.Scene {
     this.load.audio('godlike', './dist/assets/sfx/streaks/godlike.mp3');
 
     this.load.audio('gameOver', './dist/assets/sfx/gameover.mp3');
+
+    this.load.audio('streakBroken', './dist/assets/sfx/ohno.mp3');
   }
 
   create() {
@@ -137,6 +141,8 @@ class Game extends Phaser.Scene {
     this.streakSoundObjects.godlike = this.sound.add('godlike');
 
     this.gameOverSoundObject = this.sound.add('gameOver');
+
+    this.streakBorkenSoundObject = this.sound.add('streakBroken');
 
     this.levelUpSoundObject = this.sound.add('levelUp');
 
@@ -191,6 +197,10 @@ class Game extends Phaser.Scene {
   }
 
   private handleGooseMisclick() {
+    if (this.streak >= MIN_STREAK) {
+      this.streakBorkenSoundObject.play();
+    }
+
     this.streak = 0;
     this.missedPunchSoundObject.play();
     this.metric.stamina.value -= 1;
