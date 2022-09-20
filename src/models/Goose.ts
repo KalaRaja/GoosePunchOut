@@ -21,7 +21,7 @@ export default class Goose {
     }
 
     set speed(speed: Speed) {
-        this.physicsBody?.setVelocity(speed.x, speed.y);
+        this.physicsBody.setVelocity(speed.x, speed.y);
     }
 
     get position(): Coordinate {
