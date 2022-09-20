@@ -45,6 +45,7 @@ class Game extends Phaser.Scene {
   isGameOver: boolean;
   gameBackdrop: Phaser.GameObjects.Image;
   gameOverBakcdrop: Phaser.GameObjects.Image;
+  gameOverSoundObject: Phaser.Sound.BaseSound;
 
   constructor() {
     super('game');
@@ -111,6 +112,8 @@ class Game extends Phaser.Scene {
     this.load.audio('ultraKill', './dist/assets/sfx/streaks/ultrakill.mp3');
     this.load.audio('ludicrousKill', './dist/assets/sfx/streaks/ludicrousKill.mp3');
     this.load.audio('godlike', './dist/assets/sfx/streaks/godlike.mp3');
+
+    this.load.audio('gameOver', './dist/assets/sfx/gameover.mp3');
   }
 
   create() {
@@ -130,6 +133,8 @@ class Game extends Phaser.Scene {
     this.streakSoundObjects.dominating = this.sound.add('dominating');
     this.streakSoundObjects.ludicrousKill = this.sound.add('ludicrousKill');
     this.streakSoundObjects.godlike = this.sound.add('godlike');
+
+    this.gameOverSoundObject = this.sound.add('gameOver');
 
     this.levelUpSoundObject = this.sound.add('levelUp');
 
@@ -247,6 +252,7 @@ class Game extends Phaser.Scene {
   }
 
   private processGameOver() {
+    this.gameOverSoundObject.play();
     this.geese.forEach(goose => goose.physicsBody.setVisible(false));
     this.gameBackdrop.setVisible(false);
     this.gameOverBakcdrop.setVisible(true);
