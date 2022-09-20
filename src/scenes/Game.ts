@@ -6,8 +6,8 @@ import { getRandom } from '../utils';
 
 const LEVELUP_PUNCH_COUNT = 10;
 const LEVELUP_SPEED_INCREMENT = 10;
-const LEVELUP_STAMINA_INCREMENT = 1;
-const INITIAL_STAMINA = 10;
+const LEVELUP_STAMINA_INCREMENT = 20;
+const INITIAL_STAMINA = 20;
 const MAX_GEESE = 10;
 const MIN_STREAK = 3;
 
