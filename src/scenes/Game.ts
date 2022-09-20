@@ -123,6 +123,8 @@ class Game extends Phaser.Scene {
     this.gameOverBakcdrop = this.add.image(this.sys.canvas.width / 2, this.sys.canvas.height / 2, 'backdropGameOver').setInteractive();
     this.gameOverBakcdrop.on('pointerdown', this.handleGameOverScreenClick.bind(this));
 
+    this.input.setDefaultCursor('url(./dist/assets/boxing.png), pointer');
+
     this.processGameStart();  
 
     this.cursors = this.input.keyboard.createCursorKeys();
