@@ -1,0 +1,27 @@
+{
+  "name": "goosepunchout",
+  "version": "1.0.0",
+  "description": "A phaser based game based on our combined love for geese",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "dev": "webpack --mode=development",
+    "serve": "http-server public -p 3000 -a 127.0.0.1",
+    "build": "webpack --mode=production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "http-server": "^14.1.1",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "phaser": "^3.55.2",
+    "ts-loader": "^9.3.1",
+    "uuid": "^9.0.0"
+  }
+}
